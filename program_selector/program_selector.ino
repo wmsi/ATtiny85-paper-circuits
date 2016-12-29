@@ -2,7 +2,7 @@
  * program_selector.ino
  * 
  * ATtiny85 Project
- * Runs different functions (representing other programs) based an analog in reading 
+ * Runs different functions (representing other programs) based on an analog in reading 
  * (ex. a potentiometer controlling LED blink patterns)
  * 
  * 12.29.2016
