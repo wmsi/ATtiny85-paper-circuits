@@ -2,8 +2,8 @@
  * random_output.ino
  * 
  * ATtiny85 Project
- * Randomly outputs on either pin 0, 1, or 2 when pin 3 or 4 goes high 
- * 
+ * Randomly outputs on one of several pins when a rising edge is detected on an input pin
+ *  
  * 12.28.2016
  * Mckenna Cisler
  * White Mountain Science, Inc.

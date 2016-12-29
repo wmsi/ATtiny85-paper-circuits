@@ -2,7 +2,8 @@
  * blink_series.ino
  * 
  * ATtiny85 Project
- * Blinks all outputs in a series from pin 0 to 4
+ * Cycles through all output pins from 0 to 4 in a series, 
+ * creating a blinking series effect on LEDs, etc. arranged in a line.
  * 
  * 12.28.2016
  * Mckenna Cisler
