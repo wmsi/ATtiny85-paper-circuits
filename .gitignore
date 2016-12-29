@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Custom
+program_selector/play_melody.txt
+play_tone_downloaded/
+play_melody_downloaded/
