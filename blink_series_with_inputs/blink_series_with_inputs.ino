@@ -43,6 +43,8 @@ void loop() {
   input = analogRead(ANALOG_IN_PIN);
   blinkTime = map(input, LOWEST_INPUT, HIGHEST_INPUT, MIN_BLINK_TIME, MAX_BLINK_TIME);
 
+  buttonState = digitalRead(DIGITAL_IN_PIN);
+
   // execute blink series (we may be going either direction)
   for (int i = 0; i < NUM_PINS; i++) {
     // determine direction based on digital input
@@ -55,8 +57,10 @@ void loop() {
     digitalWrite(blinkPin, LOW);
   }
 
+  // DEPRECATED DEBOUNCING (not really needed here; only causes trouble)
+  /*
   // determine if we need to change button state
-  buttonReading = digitalRead(DIGITAL_IN_PIN);
+  // buttonReading = digitalRead(DIGITAL_IN_PIN);
 
   if (buttonReading != buttonState) {
     lastChangeTime = millis();
@@ -67,7 +71,7 @@ void loop() {
     if (buttonReading != buttonState) {
       buttonState = buttonReading;
     }
-  }
+  }*/
 
   delay(RESET_TIME);
 }

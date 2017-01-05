@@ -2,8 +2,8 @@
  * audio_wizard.ino
  * 
  * ATtiny85 Project
- * Creates various sounds, allowing users to control properties of the sound
- * with analog / digital inputs.
+ * Creates various sounds, selected via several digital input pins. 
+ * Also allows users to control properties of the sound with analog inputs.
  * 
  * 1.2.2016
  * Mckenna Cisler
@@ -138,6 +138,8 @@ void loop() {
       break;
     case 3:
       //playNote(C5, 100000);
+      randomVariation();
+      //dutyCycleControl();
       break;
     default:
       playNote(E6, 100000);
@@ -194,10 +196,48 @@ void frequencySweep()
   }
 }
 
+void dutyCycleControl()
+{
+  const long PULSE_WIDTH = C4;
 
+  // convert the analog input to a duty cycle value, i.e. 
+  // a percent of the wave that is high
+  // equivalent (if map worked with floats) to:
+  // map(analogReading, LOWEST_INPUT, HIGHEST_INPUT, 0, 1)
+  float dutyCycle = (analogReading - LOWEST_INPUT) / (float) HIGHEST_INPUT;
 
-/**
- * Plays a note of the given uS period (i.e. freq) for the given uS duration 
+  long timeHigh = (long) (PULSE_WIDTH * dutyCycle);
+  
+  // generate a square wave, and use the analog in to vary duty cycle
+  digitalWrite(OUTPUT_PIN, HIGH);
+  delayMicroseconds(timeHigh);
+
+  digitalWrite(OUTPUT_PIN, LOW);
+  delayMicroseconds(PULSE_WIDTH - timeHigh);
+}
+
+void randomVariation()
+{
+  const long DEFAULT_PERIOD = C4;
+  const long MIN_DEVIATION = 0;
+  const long MAX_DEVIATION = 5000; // uS
+
+  // add random variations to the default period,
+  // controlling the size of variations with analog input
+  int randomSize = map(analogReading, LOWEST_INPUT, HIGHEST_INPUT,
+                       MIN_DEVIATION, MAX_DEVIATION);
+  
+  long period = DEFAULT_PERIOD + random(-randomSize, randomSize);
+  
+  // generate approximate sine wave (actually a square wave)
+  digitalWrite(OUTPUT_PIN, HIGH);
+  delayMicroseconds(period / 2);
+
+  digitalWrite(OUTPUT_PIN, LOW);
+  delayMicroseconds(period / 2);
+}
+
+/** * Plays a note of the given uS period (i.e. freq) for the given uS duration 
  * NOTE: Durations on the microsecond level are not very accurate
  * (there's a lot of overhead) so there may be frequency, etc. limits to this method.
  */
