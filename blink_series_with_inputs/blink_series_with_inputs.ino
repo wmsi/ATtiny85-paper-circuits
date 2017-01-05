@@ -5,7 +5,7 @@
  * Cycles through all output pins from 0 to 2 in a series, 
  * creating a blinking series effect on LEDs, etc. arranged in a line.
  * Also controls the speed of the blinking effect using an analog input, 
- * and the direction is toggled using a button on a digital input.
+ * and the direction is toggled using a digital input.
  * 
  * 12.28.2016
  * Mckenna Cisler

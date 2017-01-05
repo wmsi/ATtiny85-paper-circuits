@@ -39,7 +39,7 @@ void loop() {
       blink_series();
       break;
     case 1:
-      random_output();
+      random_noise();
       break;
     case 2: 
       twinkle();
@@ -48,7 +48,7 @@ void loop() {
       fade();
       break;
     case 4:
-      //play_melody();
+      // RGB LED????
       break;
     default:
       blinky();
@@ -77,7 +77,7 @@ void blink_series() {
 }
 
 // Randomly varies output on all pins
-void random_output() {
+void random_noise() {
   // Constants
   const long RESET_TIME = 200; // ms; duration to wait before getting new random values
 
