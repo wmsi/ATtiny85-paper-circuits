@@ -42,10 +42,10 @@ void loop() {
       random_noise();
       break;
     case 2: 
-      twinkle();
+      fade();
       break;
     case 3:
-      fade();
+      twinkle();
       break;
     case 4:
       // RGB LED????

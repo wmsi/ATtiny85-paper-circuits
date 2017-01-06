@@ -3,7 +3,8 @@
  * 
  * ATtiny85 Project
  * Using the functionality of play_melody, plays different melodies  
- * based on an analog in reading (ex. a potentiometer)
+ * based on an analog in reading (ex. a potentiometer) or digital in
+ * readings (as a binary input)
  * 
  * 1.2.2016
  * Mckenna Cisler
@@ -84,13 +85,22 @@
 
 #define OUTPUT_PIN 0
 #define NUM_OPTIONS 5 // number of  melody options (# of sections to divide input range into)
-#define SELECTOR_PIN A2 // analog input
+
+//#define USE_ANALOG_SELECTOR // uncomment to use binary digital selector
+#ifdef USE_ANALOG_SELECTOR
+  #define SELECTOR_PIN A2 // analog input
+#else
+  #define SELECTOR_PIN_1 1 // pins to select program  // ones bit
+  #define SELECTOR_PIN_2 2                            // twos bit 
+#endif
+
+
 #define LOWEST_INPUT 0 // minimum analog input 
 #define HIGHEST_INPUT 1023 // max analog input (represents min/max of whatever resistive device)
 
 // Tempos
-long BEAT_DURATION =   40000;  // uS - how long a single beat is
-long INTER_NOTE_REST = 10000; // uS - how long to rest between each note
+#define BEAT_DURATION   40000  // uS - how long a single beat is
+#define INTER_NOTE_REST 10000 // uS - how long to rest between each note
                                 // (this is done because it's easier to hear notes)
 
 // Melodies
@@ -109,20 +119,50 @@ long notes_pirates[] = {R, A2_, C3, D3, D3,  R, D3, E3, F3, F3,  R, F3, G3, E3, 
 int beats_pirates[] =  {16,  8,  8, 16, 16, 16,  8,  8, 16, 16, 16,  8,  8, 16, 16, 16,  8,  8, 16};
 int num_notes_pirates = sizeof(notes_pirates) / sizeof(long);
 
+// Twinkle Twinkle Little Star - http://makingmusicfun.net/pdf/sheet_music/twinkle-twinkle-little-star-piano-solo.pdf
+long notes_twinkle[] = {C5, C5, G5, G5, A5, A5, G5, F5, F5, E5, E5, D5, D5, C5, R};
+int beats_twinkle[] =  {16, 16, 16, 16, 16, 16, 32, 16, 16, 16, 16, 16, 16, 32, 32};
+int num_notes_twinkle = sizeof(notes_twinkle) / sizeof(long);
+
+// Old Macdonald had a Farm - http://makingmusicfun.net/pdf/sheet_music/old-macdonald-piano-solo.pdf
+long notes_macdonald[] = {G4, G4, G4, D4, E4, E4, D4, B4, B4, A4, A4, G4, D4};
+int beats_macdonald[] =  { 8,  8,  8,  8,  8,  8, 16,  8,  8,  8,  8, 16,  8};
+int num_notes_macdonald = sizeof(notes_macdonald) / sizeof(long);
+
 // Variables
-int reading = 0, selector = 0;
+int selector = 0;
+#ifdef USE_ANALOG_SELECTOR
+  int reading = 0;
+#else
+  int selectorVal1 = 0, selectorVal2 = 0;
+#endif
 
 void setup() {
-  pinMode(SELECTOR_PIN, INPUT);
   pinMode(OUTPUT_PIN, OUTPUT);
+
+  #ifdef USE_ANALOG_SELECTOR
+    pinMode(SELECTOR_PIN, INPUT);
+  #else
+    pinMode(SELECTOR_PIN_1, INPUT);
+    pinMode(SELECTOR_PIN_2, INPUT);
+  #endif
 }
 
 void loop() {
-  reading = analogRead(SELECTOR_PIN);
+  #ifdef USE_ANALOG_SELECTOR
+    reading = analogRead(SELECTOR_PIN);
+    
+    // convert the analog reading to a function index
+    selector = map(reading, LOWEST_INPUT, HIGHEST_INPUT, 0, NUM_OPTIONS);
+  #else
+    // get pin values, adding debouncing
+    selectorVal1 = digitalRead(SELECTOR_PIN_1);
+    selectorVal2 = digitalRead(SELECTOR_PIN_2);
 
-  // convert the analog reading to a function index
-  selector = map(reading, LOWEST_INPUT, HIGHEST_INPUT, 0, NUM_OPTIONS);
-
+    // generate selector out of pin values (treat as bits)
+    selector = 2 * selectorVal2 + selectorVal1;
+  #endif 
+  
   // based on selector value, run a different function (should go up to NUM_OPTIONS)
   switch (selector) 
   {
@@ -133,13 +173,13 @@ void loop() {
       playMelody(notes_mary_lamb, beats_mary_lamb, num_notes_mary_lamb);
       break;
     case 2: 
-      playMelody(notes_pirates, beats_pirates, num_notes_pirates);
+      playMelody(notes_twinkle, beats_twinkle, num_notes_twinkle);
       break;
     case 3:
-      //playMelody(
+      playMelody(notes_macdonald, beats_macdonald, num_notes_macdonald);
       break;
     case 4:
-      noteSweep();
+      //playMelody(notes_pirates, beats_pirates, num_notes_pirates);
       break;
     default:
       playNote(C3, BEAT_DURATION * 8);
@@ -187,9 +227,10 @@ void playNote(long period, long duration)
   }
 }
 
+/*
 void noteSweep() {
   for (long i = B8; i < C1; i += 100) {
     playNote(i, BEAT_DURATION / 2);
   }
 }
-
+*/

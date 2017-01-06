@@ -237,6 +237,8 @@ void randomVariation()
   delayMicroseconds(period / 2);
 }
 
+
+
 /** * Plays a note of the given uS period (i.e. freq) for the given uS duration 
  * NOTE: Durations on the microsecond level are not very accurate
  * (there's a lot of overhead) so there may be frequency, etc. limits to this method.
