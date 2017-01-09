@@ -129,6 +129,11 @@ long notes_macdonald[] = {G4, G4, G4, D4, E4, E4, D4, B4, B4, A4, A4, G4, D4};
 int beats_macdonald[] =  { 8,  8,  8,  8,  8,  8, 16,  8,  8,  8,  8, 16,  8};
 int num_notes_macdonald = sizeof(notes_macdonald) / sizeof(long);
 
+// Carol of the Bells (short) - http://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0060566
+long notes_carol[] = {G5, F5, G5, E5};
+int beats_carol[] =  { 8,  4,  4,  8};
+int num_notes_carol = sizeof(notes_carol) / sizeof(long);
+
 // Variables
 int selector = 0;
 #ifdef USE_ANALOG_SELECTOR
@@ -179,31 +184,14 @@ void loop() {
       playMelody(notes_macdonald, beats_macdonald, num_notes_macdonald);
       break;
     case 4:
+      // can't do much here because we're out of memory
+      playMelody(notes_carol, beats_carol, num_notes_carol);
       //playMelody(notes_pirates, beats_pirates, num_notes_pirates);
       break;
     default:
       playNote(C3, BEAT_DURATION * 8);
       break;
   }  
-}
-
-/**
- * Plays a series of notes using playNote() given an array 
- * of note periods and an array of note beat durations.
- */
-void playMelody(long* notes, int* beats, int numNotes) {
-  for (int i = 0; i < numNotes; i++)
-  {
-    long playDuration = beats[i] * BEAT_DURATION;
-
-    // handle rests differently
-    if (notes[i] > 0)
-      playNote(notes[i], playDuration);
-    else
-      delayMicroseconds(playDuration);
-
-    delayMicroseconds(INTER_NOTE_REST);
-  }
 }
 
 /**
