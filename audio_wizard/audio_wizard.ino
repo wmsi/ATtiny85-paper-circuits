@@ -95,6 +95,7 @@
 #define LOWEST_INPUT 0 // minimum analog input 
 #define HIGHEST_INPUT 1023 // max analog input (represents min/max of whatever resistive device)
 
+
 #define e 2.718281828 // fundamental constant
 
 // Variables
@@ -112,7 +113,7 @@ void setup() {
 
 void loop() {
   // get analog reading for later use
-  analogReading = analogRead(ANALOG_IN); // HIGHEST_INPUT - analogRead(ANALOG_IN);
+  analogReading = HIGHEST_INPUT - analogRead(ANALOG_IN); //analogRead(ANALOG_IN);
 
   // get pin values, adding debouncing
   selectorVal1 = digitalRead(SELECTOR_PIN_1);
@@ -247,39 +248,47 @@ void randomVariation()
 // Melodies for melody selector
 // Imperial March - http://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0017607
 long notes_imperial_march[] = {G3, G3, G3, E3, B3, G3, E3, B3, G3, D4, D4, D4, E4, B3, G3, E3, B3,  R};
-int beats_imperial_march[] =  {16, 16, 16,  8,  8, 16,  8,  8, 32, 16, 16, 16,  8,  8, 16,  8,  8, 32};
+int8_t beats_imperial_march[] =  {16, 16, 16,  8,  8, 16,  8,  8, 32, 16, 16, 16,  8,  8, 16,  8,  8, 32};
 int num_notes_imperial_march = sizeof(notes_imperial_march) / sizeof(long);
 
 // Mary had a Little Lamb - http://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0127902
 long notes_mary_lamb[] = {A3, G3, F3, G3, A3, A3, A3, G3, G3, G3, A3, C4, C4}; 
-int beats_mary_lamb[] =  { 8,  8,  8,  8,  8,  8, 16,  8,  8, 16,  8,  8, 16};
+int8_t beats_mary_lamb[] =  { 8,  8,  8,  8,  8,  8, 16,  8,  8, 16,  8,  8, 16};
 int num_notes_mary_lamb = sizeof(notes_mary_lamb) / sizeof(long);
 
-// Pirates of the Carribean - http://easymusicnotes.com/index.php?option=com_content&view=article&id=1588:pirates-of-the-caribbean-theme&catid=148:piano-level-4&Itemid=155
-long notes_pirates[] = {R, A2_, C3, D3, D3,  R, D3, E3, F3, F3,  R, F3, G3, E3, E3,  R, D3, C3, D3}; 
-int beats_pirates[] =  {16,  8,  8, 16, 16, 16,  8,  8, 16, 16, 16,  8,  8, 16, 16, 16,  8,  8, 16};
-int num_notes_pirates = sizeof(notes_pirates) / sizeof(long);
+// Raiders March - http://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0130280
+long notes_raiders[] =   {E4, F4, G4, C5, D4, E4, F4,  R, G4, A4, B4, F5, A4, B4, C5, D5, E5};
+int8_t beats_raiders[] = { 4,  4,  4, 24,  4,  4, 16,  8,  4,  4,  4, 24,  4,  4,  8,  8,  8};
+int num_notes_raiders = sizeof(notes_raiders) / sizeof(long);
 
 // Twinkle Twinkle Little Star - http://makingmusicfun.net/pdf/sheet_music/twinkle-twinkle-little-star-piano-solo.pdf
 long notes_twinkle[] = {C5, C5, G5, G5, A5, A5, G5, F5, F5, E5, E5, D5, D5, C5, R};
-int beats_twinkle[] =  {16, 16, 16, 16, 16, 16, 32, 16, 16, 16, 16, 16, 16, 32, 32};
+int8_t beats_twinkle[] =  {16, 16, 16, 16, 16, 16, 32, 16, 16, 16, 16, 16, 16, 32, 32};
 int num_notes_twinkle = sizeof(notes_twinkle) / sizeof(long);
 
 // Old Macdonald had a Farm - http://makingmusicfun.net/pdf/sheet_music/old-macdonald-piano-solo.pdf
 long notes_macdonald[] = {G4, G4, G4, D4, E4, E4, D4, B4, B4, A4, A4, G4, D4};
-int beats_macdonald[] =  { 8,  8,  8,  8,  8,  8, 16,  8,  8,  8,  8, 16,  8};
+int8_t beats_macdonald[] =  { 8,  8,  8,  8,  8,  8, 16,  8,  8,  8,  8, 16,  8};
 int num_notes_macdonald = sizeof(notes_macdonald) / sizeof(long);
 
 // Carol of the Bells (short) - http://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0060566
 long notes_carol[] = {G5, F5, G5, E5};
-int beats_carol[] =  { 8,  4,  4,  8};
+int8_t beats_carol[] =  { 8,  4,  4,  8};
 int num_notes_carol = sizeof(notes_carol) / sizeof(long);
+
+// Pirates of the Carribean - http://easymusicnotes.com/index.php?option=com_content&view=article&id=1588:pirates-of-the-caribbean-theme&catid=148:piano-level-4&Itemid=155
+long notes_pirates[] =    { R, A2_, C3, D3, D3,  R, D3, E3, F3, F3,  R, F3, G3, E3, E3,  R, D3, C3, D3}; 
+int8_t beats_pirates[] =  {16,  8,  8, 16, 16, 16,  8,  8, 16, 16, 16,  8,  8, 16, 16, 16,  8,  8, 16};
+int num_notes_pirates = sizeof(notes_pirates) / sizeof(long);
 
 void melodySelector() {  
   const int NUM_ANALOG_OPTIONS = 5;
   
   // convert the analog reading to a function index
   int analogSelector = map(analogReading, LOWEST_INPUT, HIGHEST_INPUT, 0, NUM_ANALOG_OPTIONS);
+
+  // invert analog selector (because analogReading is invereted above)
+  analogSelector = NUM_ANALOG_OPTIONS - analogSelector;
   
   // based on selector value, run a different function (should go up to NUM_OPTIONS)
   switch (analogSelector) 
@@ -297,12 +306,12 @@ void melodySelector() {
       playMelody(notes_macdonald, beats_macdonald, num_notes_macdonald);
       break;
     case 4:
-      // can't do much here because we're out of memory
-      playMelody(notes_carol, beats_carol, num_notes_carol);
+      playMelody(notes_raiders, beats_raiders, num_notes_raiders);
       //playMelody(notes_pirates, beats_pirates, num_notes_pirates);
       break;
     default:
-      playNote(C3, BEAT_DURATION * 8);
+      playMelody(notes_carol, beats_carol, num_notes_carol);
+      //playNote(C3, BEAT_DURATION * 8);
       break;
   }  
 }
@@ -311,7 +320,7 @@ void melodySelector() {
  * Plays a series of notes using playNote() given an array 
  * of note periods and an array of note beat durations.
  */
-void playMelody(long* notes, int* beats, int numNotes) {
+void playMelody(long* notes, int8_t* beats, int numNotes) {
   for (int i = 0; i < numNotes; i++)
   {
     long playDuration = beats[i] * BEAT_DURATION;
