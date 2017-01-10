@@ -112,7 +112,7 @@ void setup() {
 
 void loop() {
   // get analog reading for later use
-  analogReading = analogRead(ANALOG_IN);
+  analogReading = analogRead(ANALOG_IN); // HIGHEST_INPUT - analogRead(ANALOG_IN);
 
   // get pin values, adding debouncing
   selectorVal1 = digitalRead(SELECTOR_PIN_1);
