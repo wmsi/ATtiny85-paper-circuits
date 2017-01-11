@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Fritzing (http://www.fritzing.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.2"
+   x="0in"
+   y="0in"
+   width="6.7289081in"
+   height="4.3546243in"
+   viewBox="0 0 484.48121 313.53311"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Audio Circuit Step 1_bb.svg">
+  <metadata
+     id="metadata1070" />
+  <defs
+     id="defs1068" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     id="namedview1066"
+     showgrid="true"
+     inkscape:document-units="cm"
+     showguides="false"
+     inkscape:zoom="1.1121538"
+     inkscape:cx="480.30031"
+     inkscape:cy="85.786565"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g435"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid5198"
+       units="mm"
+       spacingx="2.8346446"
+       spacingy="2.8346471"
+       originx="-10.166385"
+       originy="-81.039677" />
+  </sodipodi:namedview>
+  <g
+     id="g6"
+     transform="translate(203.10529,125.97549)"
+     style="fill:none;stroke:#000000;stroke-width:2.2677176;stroke-miterlimit:4;stroke-dasharray:13.6063057, 13.6063057;stroke-dashoffset:0;stroke-opacity:1">
+    <rect
+       style="fill:none;fill-opacity:0.32738097;stroke:#000000;stroke-width:2.2677176;stroke-miterlimit:4;stroke-dasharray:13.6063057, 13.6063057;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5414"
+       width="79.370117"
+       height="79.370117"
+       x="0.90925682"
+       y="-7.3352475" />
+  </g>
+  <g
+     partID="79610"
+     id="g332"
+     transform="matrix(1,0,0,1.0478498,29.450907,-153.48401)"
+     style="fill:none;stroke:#000000;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+    <g
+       transform="translate(454.322,444.789)"
+       id="g334"
+       style="fill:none;stroke:#000000;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+      <g
+         transform="scale(-1,-1)"
+         id="g336"
+         style="fill:none;stroke:#000000;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+        <g
+           id="g338"
+           style="fill:none;stroke:#000000;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+          <defs
+             id="defs3782" />
+          <metadata
+             id="metadata3785">
+            <rdf:RDF>
+              <cc:Work
+                 rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                   rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                <dc:title></dc:title>
+              </cc:Work>
+            </rdf:RDF>
+          </metadata>
+          <g
+             transform="translate(-223.449,-4376.41)"
+             id="g342"
+             style="fill:none;stroke:#000000;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+            <g
+               id="g344"
+               style="fill:none;stroke:#000000;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+              <g
+                 id="layer1"
+                 style="fill:none;stroke:#000000;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+                <path
+                   style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.77165353;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:14.17322839, 14.17322839;stroke-dashoffset:0;stroke-opacity:1"
+                   d="m 780.4375,174.40234 0,372.42774 -567.51758,0 0,-354.28906 286.8086,0 0,103.10937 17.71484,0 0,-120.92187 -17.71484,0 0,0.0957 -286.8086,0 0,-0.33984 -18.5957,0 0,390.0371 0.89062,0 0,0.0254 602.36328,0 0,-0.29493 0.57618,0 0,-389.84961 -17.7168,0 z"
+                   transform="matrix(-0.80000038,0,0,-0.76346856,861.97289,4807.1982)"
+                   id="rect4596"
+                   inkscape:connector-curvature="0" />
+                <rect
+                   y="4391.5298"
+                   id="rect4598"
+                   x="224.131"
+                   height="1.72357"
+                   width="0.15152299"
+                   style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     partID="79620"
+     id="g349"
+     transform="matrix(1.6190473,0,0,1,-251.66994,-131.8413)">
+    <g
+       transform="translate(156.321,444.665)"
+       id="g351">
+      <g
+         transform="matrix(0,-1,1,0,0,0)"
+         id="g353">
+        <g
+           id="g355">
+          <defs
+             id="defs357" />
+          <metadata
+             id="metadata359">
+            <rdf:RDF>
+              <cc:Work
+                 rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                   rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                <dc:title />
+              </cc:Work>
+            </rdf:RDF>
+          </metadata>
+          <g
+             transform="translate(-223.449,-4376.41)"
+             id="g361">
+            <g
+               id="g363">
+              <g
+                 id="g365">
+                <rect
+                   y="4391.5298"
+                   id="rect369"
+                   x="224.131"
+                   height="1.72357"
+                   width="0.15152299"
+                   style="fill:#b87333;fill-opacity:1" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     id="g6862"
+     transform="translate(-154.75078,-138.81328)">
+    <g
+       transform="matrix(1.0495587,0,0,1.0483503,-8.6068495,-14.903808)"
+       id="g371"
+       partID="79630">
+      <g
+         id="g373"
+         transform="translate(170.493,445.005)">
+        <g
+           id="g375"
+           transform="scale(-1,-1)">
+          <g
+             id="g377">
+            <defs
+               id="defs379" />
+            <metadata
+               id="metadata381">
+              <rdf:RDF>
+                <cc:Work
+                   rdf:about="">
+                  <dc:format>image/svg+xml</dc:format>
+                  <dc:type
+                     rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                  <dc:title />
+                </cc:Work>
+              </rdf:RDF>
+            </metadata>
+            <g
+               id="g383"
+               transform="translate(-223.449,-4376.41)">
+              <g
+                 id="g385">
+                <g
+                   id="g387">
+                  <path
+                     style="fill:#b87333;fill-opacity:1"
+                     d="m 224.131,4391.5298 0.15152,0 0,1.7236 -0.15152,0 z"
+                     id="rect391"
+                     inkscape:connector-curvature="0" />
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       transform="matrix(1.5661557,0,0,1,-88.24835,-6.7612947)"
+       id="g393"
+       partID="79640">
+      <g
+         id="g395"
+         transform="translate(155.873,160.794)">
+        <g
+           id="g397"
+           transform="matrix(0,-1,1,0,0,0)">
+          <g
+             id="g399">
+            <defs
+               id="defs401" />
+            <metadata
+               id="metadata403">
+              <rdf:RDF>
+                <cc:Work
+                   rdf:about="">
+                  <dc:format>image/svg+xml</dc:format>
+                  <dc:type
+                     rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                  <dc:title />
+                </cc:Work>
+              </rdf:RDF>
+            </metadata>
+            <g
+               id="g405"
+               transform="translate(-223.449,-2417.44)">
+              <g
+                 id="g407">
+                <g
+                   id="g409">
+                  <path
+                     style="fill:#b87333;fill-opacity:1"
+                     d="m 224.131,2425.79 0.15152,0 0,0.9521 -0.15152,0 z"
+                     id="rect413"
+                     inkscape:connector-curvature="0" />
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       transform="matrix(1,0,0,1.1375685,93.081087,-27.330325)"
+       id="g415"
+       partID="79650">
+      <g
+         id="g417"
+         transform="translate(306.701,146.904)">
+        <g
+           id="g419">
+          <defs
+             id="defs421" />
+          <metadata
+             id="metadata423">
+            <rdf:RDF>
+              <cc:Work
+                 rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                   rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                <dc:title />
+              </cc:Work>
+            </rdf:RDF>
+          </metadata>
+          <g
+             id="g425"
+             transform="translate(-223.449,-1250.4)">
+            <g
+               id="g427">
+              <g
+                 id="g429">
+                <path
+                   style="fill:#b87333;fill-opacity:1"
+                   d="m 224.131,1254.72 0.15152,0 0,0.4924 -0.15152,0 z"
+                   id="rect433"
+                   inkscape:connector-curvature="0" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     partID="79660"
+     id="g435"
+     transform="translate(114.82239,-81.005445)"
+     style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+    <g
+       transform="translate(213.39861,149.37893)"
+       id="g437"
+       style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+      <g
+         id="g439"
+         style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+        <g
+           id="g441"
+           style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+          <defs
+             id="defs443" />
+          <metadata
+             id="metadata445">
+            <rdf:RDF>
+              <cc:Work
+                 rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                   rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                <dc:title />
+              </cc:Work>
+            </rdf:RDF>
+          </metadata>
+          <g
+             transform="translate(-223.449,-2542.48)"
+             id="g447"
+             style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+            <g
+               id="g449"
+               style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+              <g
+                 id="g451"
+                 style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+                <path
+                   style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.77165353;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:14.17322838, 14.17322838;stroke-dashoffset:0;stroke-opacity:1"
+                   d="m 603.71484,175.05689 0,283.13061 -214.10742,0 0,-180.48438 75.41211,0 0,18.03126 17.7168,0 0,-35.4336 -1.08985,0 0,-0.31445 -92.03906,0 0,-0.0703 -17.7168,0 0,216.14062 17.7168,0 0,-0.15234 231.07617,0 0,-0.7793 0.74805,0 0,-300.06811 z"
+                   transform="matrix(0.80000038,0,0,0.80000038,-259.52298,2335.2932)"
+                   id="rect453"
+                   inkscape:connector-curvature="0"
+                   sodipodi:nodetypes="ccccccccccccccccccccc" />
+                <rect
+                   y="2551.26"
+                   id="rect455"
+                   x="224.131"
+                   height="1.00131"
+                   width="0.15152299"
+                   style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     partID="79670"
+     id="g457"
+     transform="matrix(1.4583339,0,0,1,-200.8947,-134.23552)">
+    <g
+       transform="translate(236.068,376.146)"
+       id="g459">
+      <g
+         transform="matrix(0,-1,1,0,0,0)"
+         id="g461">
+        <g
+           id="g463">
+          <defs
+             id="defs465" />
+          <metadata
+             id="metadata467">
+            <rdf:RDF>
+              <cc:Work
+                 rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                   rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                <dc:title />
+              </cc:Work>
+            </rdf:RDF>
+          </metadata>
+          <g
+             transform="translate(-223.449,-2000.64)"
+             id="g469">
+            <g
+               id="g471">
+              <g
+                 id="g473">
+                <rect
+                   y="2007.55"
+                   id="rect477"
+                   x="224.131"
+                   height="0.78791702"
+                   width="0.15152299"
+                   style="fill:#b87333;fill-opacity:1" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     partID="79680"
+     id="g479"
+     transform="translate(-92.696725,-134.23552)">
+    <g
+       transform="translate(235.459,203.355)"
+       id="g481">
+      <g
+         id="g483">
+        <g
+           id="g485">
+          <defs
+             id="defs487" />
+          <metadata
+             id="metadata489">
+            <rdf:RDF>
+              <cc:Work
+                 rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                   rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                <dc:title />
+              </cc:Work>
+            </rdf:RDF>
+          </metadata>
+          <g
+             transform="translate(-223.449,-2542.48)"
+             id="g491">
+            <g
+               id="g493">
+              <g
+                 id="g495">
+                <rect
+                   y="2551.26"
+                   id="rect499"
+                   x="224.131"
+                   height="1.00131"
+                   width="0.15152299"
+                   style="fill:#b87333;fill-opacity:1" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     partID="79690"
+     id="g501"
+     transform="matrix(1.5472824,0,0,1,-221.60532,-134.23552)">
+    <g
+       transform="translate(292.236,203.411)"
+       id="g503">
+      <g
+         transform="matrix(0,1,-1,0,0,0)"
+         id="g505">
+        <g
+           id="g507">
+          <defs
+             id="defs509" />
+          <metadata
+             id="metadata511">
+            <rdf:RDF>
+              <cc:Work
+                 rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                   rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                <dc:title />
+              </cc:Work>
+            </rdf:RDF>
+          </metadata>
+          <g
+             transform="translate(-223.449,-833.602)"
+             id="g513">
+            <g
+               id="g515">
+              <g
+                 id="g517">
+                <rect
+                   y="836.48102"
+                   id="rect521"
+                   x="224.131"
+                   height="0.3283"
+                   width="0.15152299"
+                   style="fill:#b87333;fill-opacity:1" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     partID="79700"
+     id="g523"
+     transform="translate(-60.652417,-134.23552)">
+    <g
+       transform="translate(277.918,203.663)"
+       id="g525">
+      <g
+         id="g527">
+        <defs
+           id="defs529" />
+        <metadata
+           id="metadata531">
+          <rdf:RDF>
+            <cc:Work
+               rdf:about="">
+              <dc:format>image/svg+xml</dc:format>
+              <dc:type
+                 rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+              <dc:title />
+            </cc:Work>
+          </rdf:RDF>
+        </metadata>
+        <g
+           transform="translate(-223.449,-416.801)"
+           id="g533">
+          <g
+             id="g535">
+            <g
+               id="g537">
+              <rect
+                 y="418.241"
+                 id="rect541"
+                 x="224.131"
+                 height="0.16415"
+                 width="0.15152299"
+                 style="fill:#b87333;fill-opacity:1" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:32.00001526px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="186.13806"
+     y="96.000015"
+     id="text5200"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5202"
+       x="186.13806"
+       y="96.000015"
+       style="font-size:13.00000668px">GND</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:32.00001526px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="260.94528"
+     y="96.03714"
+     id="text5200-6"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5202-7"
+       x="260.94528"
+       y="96.03714"
+       style="font-size:13.00000668px">+5V</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:32.00001526px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="160.12857"
+     y="148.18303"
+     id="text5200-7"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5202-3"
+       x="160.12857"
+       y="148.18303"
+       style="font-size:13.00000668px">4 (A3)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:32.00001526px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="159.91138"
+     y="176.67241"
+     id="text5200-7-4"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       x="159.91138"
+       y="176.67241"
+       style="font-size:13.00000668px"
+       id="tspan5258">3 (A2)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:32.00001526px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="287.67065"
+     y="135.14961"
+     id="text5200-7-4-3"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       x="287.67065"
+       y="135.14961"
+       style="font-size:13.00000668px"
+       id="tspan5258-2">2 (A1)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:32.00001526px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="315.50766"
+     y="164.1039"
+     id="text5200-7-4-31"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       x="315.50766"
+       y="164.1039"
+       style="font-size:13.00000668px"
+       id="tspan5258-5">1</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:32.00001526px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="315.67795"
+     y="191.27916"
+     id="text5200-7-4-31-9"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       x="315.67795"
+       y="191.27916"
+       style="font-size:13.00000668px"
+       id="tspan5306">0</tspan></text>
+</svg>
