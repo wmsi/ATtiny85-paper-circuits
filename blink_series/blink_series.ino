@@ -10,9 +10,9 @@
  * White Mountain Science, Inc.
  */
 
-const int NUM_PINS = 5;
-const long BLINK_TIME = 400; // ms; duration light is on for
-const long RESET_TIME = 0; // ms; duration to wait before looping again
+#define NUM_PINS 5
+#define BLINK_TIME 400 // ms; duration light is on for
+#define RESET_TIME 0 // ms; duration to wait before looping again
 
 void setup() {
   for (int i = 0; i < NUM_PINS; i++) {
@@ -21,16 +21,12 @@ void setup() {
 }
 
 void loop() {
+  // go through all pins, blinking each on and off briefly
   for (int i = 0; i < NUM_PINS; i++) {    
     digitalWrite(i, HIGH);
     delay(BLINK_TIME);
     digitalWrite(i, LOW);
   }   
-
-  // shut off all pins to reset
-//  for (int i = 0; i < NUM_PINS; i++) {    
-//    digitalWrite(i, LOW);
-//  }
-
+  
   delay(RESET_TIME);
 }

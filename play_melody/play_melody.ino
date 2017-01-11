@@ -13,10 +13,10 @@
 #define OUTPUT_PIN 0
 
 // Define notes
-// NOTE: Make sure you use these as LONGs on the ATtiny85! (w/ 16 bit ints)
+// NOTE: Make sure you use these as LONGs on the ATtiny85! (it has only 16 bit ints)
 // (A regular expression to manipulate these :) 
 //  (\w\d)\s*((\d|\.)*)\s*((\d|\.)*) -> $1 $2 $4 )
-//      NOTE  PERIOD // FREQ
+//    NOTE  PERIOD (uS) // FREQ (Hz)
 #define C0  61162.08  // 16.35
 #define D0  54495.91  // 18.35
 #define E0  48543.69  // 20.60
@@ -90,8 +90,8 @@ long INTER_NOTE_REST = 10000; // uS - how long to rest between each note
                                 // (this is done because it's easier to hear notes)
 
 // Melody
-long notes[] = {G3, G3, G3, E3, B3, G3, E3, B3, G3, D4, D4, D4, E4, B3, G3, E3, B3,  R}; // {G4, G4, G4, E4, B4, G4, E4, B4, G4, D5, D5, D5, E5, B4, G4, E4, B4,  R};
-int beats[] =  {16, 16, 16,  8,  8, 16,  8,  8, 32, 16, 16, 16,  8,  8, 16,  8,  8, 32};
+long notes[] =    {G3, G3, G3, E3, B3, G3, E3, B3, G3, D4, D4, D4, E4, B3, G3, E3, B3,  R}; // {G4, G4, G4, E4, B4, G4, E4, B4, G4, D5, D5, D5, E5, B4, G4, E4, B4,  R};
+int8_t beats[] =  {16, 16, 16,  8,  8, 16,  8,  8, 32, 16, 16, 16,  8,  8, 16,  8,  8, 32};
 int NUM_NOTES = sizeof(notes) / sizeof(long);
 
 void setup() {
@@ -106,22 +106,25 @@ void loop() {
  * Plays a series of notes using playNote() given an array 
  * of note periods and an array of note beat durations.
  */
-void playMelody(long* notes, int* beats, int numNotes) {
+void playMelody(long* notes, int8_t* beats, int numNotes) {
   for (int i = 0; i < numNotes; i++)
   {
+    // convert the beats for this note to uS
     long playDuration = beats[i] * BEAT_DURATION;
 
-    // handle rests differently
-    if (notes[i] > 0)
-      playNote(notes[i], playDuration);
-    else
+    // handle rests differently (just delay, don't play a note)
+    if (notes[i] == R)
       delayMicroseconds(playDuration);
+    else
+      // play a note (which is represented by its period) for the uS duration
+      playNote(notes[i], playDuration);
 
     delayMicroseconds(INTER_NOTE_REST);
   }
 }
 
-/* Plays a note of the given uS period (i.e. freq) for the given uS duration 
+/**
+ * Plays a note of the given uS period (i.e. freq) for the given uS duration 
  * NOTE: Durations on the microsecond level are not very accurate
  * (there's a lot of overhead) so there may be frequency, etc. limits to this method.
  */
@@ -130,7 +133,14 @@ void playNote(long period, long duration)
   long elapsedDuration = 0;
   while (elapsedDuration < duration)
   {
-    // generate approximate sine wave (actually a square wave)
+    // to make a certain note, generate approximate sine wave (actually a square wave)
+    // of the right frequency by going HIGH for half a period, and low for half a period:
+    //     1 period
+    //   <----------->
+    //  |------|
+    //  | HIGH |
+    //         | LOW  |
+    //         |------|
     digitalWrite(OUTPUT_PIN, HIGH);
     delayMicroseconds(period / 2);
 

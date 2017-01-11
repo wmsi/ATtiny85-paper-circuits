@@ -9,8 +9,8 @@
  * White Mountain Science, Inc.
  */
 
-const int NUM_PINS = 2;
-const long FADE_DELAY = 8; // ms; controls fade speed
+#define NUM_PINS 2
+#define FADE_DELAY 8 // ms; controls fade speed
 
 void setup() {
   for (int i = 0; i < NUM_PINS; i++) {
@@ -19,7 +19,7 @@ void setup() {
 }
 
 void loop() {
-  // increase output
+  // gradually increase output for all pins to the max
   for (int i = 0; i < 255; i++) {
     for (int pin = 0; pin < NUM_PINS; pin++) {
       analogWrite(pin, i);
@@ -27,7 +27,7 @@ void loop() {
     delay(FADE_DELAY);
   } 
   
-  // decrease output
+  // gradually decrease output for all pins to zero
   for (int i = 255; i > 0; i--) {
     for (int pin = 0; pin < NUM_PINS; pin++) {
       analogWrite(pin, i);

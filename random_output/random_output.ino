@@ -9,43 +9,36 @@
  * White Mountain Science, Inc.
  */
 
-// Pin defintions
-const int SENSING_PIN_1 = 4;
-//const int SENSING_PIN_2 = 3;
-
-// (must be sequential and in increasing order)
-const int OUTPUT_PIN_1 = 0;
-const int OUTPUT_PIN_2 = 1;
-const int OUTPUT_PIN_3 = 2;
-const int OUTPUT_PIN_4 = 3;
-
-const long DEBOUNCE_DELAY = 20; // ms to delay before actually reading input
+// Constants
+#define SENSING_PIN_1 4
+#define NUM_PINS 4
+#define DEBOUNCE_DELAY 20 // ms to delay before actually reading input
 
 // Variables
+int randPin = 0;
 int state = 0;
-int lastState = 0;
 
+// needed for debouncing
+int lastState = 0;
 int lastReadState = 0;
 long lastDebounceTime = 0;
-int randPin = 0;
 
 void setup() {
   // setup pins
   pinMode(SENSING_PIN_1, INPUT);
-  //pinMode(SENSING_PIN_2, INPUT);
-  
-  pinMode(OUTPUT_PIN_1, OUTPUT);
-  pinMode(OUTPUT_PIN_2, OUTPUT);
-  pinMode(OUTPUT_PIN_3, OUTPUT);
-  pinMode(OUTPUT_PIN_4, OUTPUT);
+
+  for (int i = 0; i < NUM_PINS; i++) {
+    pinMode(i, OUTPUT);
+  }
 }
 
 void loop() {
-  // check whether either pin has just gone high
-  if (digitalRead(SENSING_PIN_1) == HIGH) // || digitalRead(SENSING_PIN_2) == HIGH)
-    state = HIGH;
-  else
-    state = LOW;
+  // get digital input reading
+  state = digitalRead(SENSING_PIN_1);
+
+  // use debouncing so that we don't pay attention to changes in the button
+  // state unless they stay that way for longer than DEBOUNCE_DELAY
+  // (see https://www.arduino.cc/en/Tutorial/Debounce for more info)
 
   // "start timer" if a state changes
   if (state != lastReadState)
@@ -54,6 +47,7 @@ void loop() {
   // if pin has been HIGH for long enough, check if it's actually changed
   if (millis() - lastDebounceTime > DEBOUNCE_DELAY)
   {
+    // if it hasn't changed we don't need to activate
     if (lastState != state)
     {
       // only activate on LOW->HIGH; turn off on HIGH->LOW
@@ -61,22 +55,36 @@ void loop() {
       {
         // choose a pin to output on based on a random number
         // (make sure the last one is included)
-        randPin = random(OUTPUT_PIN_1, OUTPUT_PIN_4 + 1);
+        randPin = random(0, NUM_PINS + 1);
         digitalWrite(randPin, HIGH);
       }
       else
       {
-        digitalWrite(OUTPUT_PIN_1, LOW);
-        digitalWrite(OUTPUT_PIN_2, LOW);
-        digitalWrite(OUTPUT_PIN_3, LOW);
-        digitalWrite(OUTPUT_PIN_4, LOW);
+        // turn off all the pins
+        for (int i = 0; i < NUM_PINS; i++) {
+          digitalWrite(i, LOW);
+        }
       }
 
-      // update the actual state for next iteration
+      // update the actual state for the next iteration
       lastState = state;  
     }
   }
 
-  // update the current state for next iteration
+  // update the current state reading for the next iteration
   lastReadState = state;
 }
+
+/* Code to use multiple input pins
+  #define SENSING_PIN_2 3 
+   
+  pinMode(SENSING_PIN_2, INPUT);
+
+  ...
+ 
+  // check whether either pin has just gone high
+  if (digitalRead(SENSING_PIN_1) == HIGH) // || digitalRead(SENSING_PIN_2) == HIGH)
+    state = HIGH;
+  else
+    state = LOW;
+*/

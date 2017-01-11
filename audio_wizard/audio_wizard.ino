@@ -10,11 +10,13 @@
  * White Mountain Science, Inc.
  */
 
+#define e 2.718281828 // the fundamental constant
+
 // Define notes
-// NOTE: Make sure you use these as LONGs on the ATtiny85! (w/ 16 bit ints)
+// NOTE: Make sure you use these as LONGs on the ATtiny85! (it has only 16 bit ints)
 // (A regular expression to manipulate these :) 
 //  (\w\d)\s*((\d|\.)*)\s*((\d|\.)*) -> $1 $2 $4 )
-//      NOTE  PERIOD // FREQ
+//    NOTE  PERIOD (uS) // FREQ (Hz)
 #define C0  61162.08  // 16.35
 #define D0  54495.91  // 18.35
 #define E0  48543.69  // 20.60
@@ -81,28 +83,23 @@
 
 // "Rest" note
 #define R   0 
+ 
+#define NUM_NOTES 62 // number of notes above
 
-#define NUM_NOTES 62
-
-#define OUTPUT_PIN 0
-#define NUM_OPTIONS 4 // number of program options (has to be 4 w/ 2 pins)
+#define OUTPUT_PIN 0 // pin of the speaker (or speaker transistor)
+#define NUM_OPTIONS 4 // number of program options (has to be 4 with 2 buttons)
 
 #define SELECTOR_PIN_1 1 // pins to select program  // ones bit
 #define SELECTOR_PIN_2 2                            // twos bit
 #define DEBOUNCE_DELAY 50 // ms
 
-#define ANALOG_IN A2 // analog input 
+#define ANALOG_IN A2 // analog input to modify sounds
 #define LOWEST_INPUT 0 // minimum analog input 
 #define HIGHEST_INPUT 1023 // max analog input (represents min/max of whatever resistive device)
-
-
-#define e 2.718281828 // fundamental constant
 
 // Variables
 int analogReading = 0;
 int selector = 0, selectorVal1 = 0, selectorVal2 = 0;
-int curSelectorVal1 = 0, curSelectorVal2 = 0;
-long lastSelectorChange1 = 0, lastSelectorChange2 = 0;
 
 void setup() {
   pinMode(SELECTOR_PIN_1, INPUT);
@@ -112,19 +109,26 @@ void setup() {
 }
 
 void loop() {
-  // get analog reading for later use
-  analogReading = HIGHEST_INPUT - analogRead(ANALOG_IN); //analogRead(ANALOG_IN);
+  // get analog reading for later use (reverse it to make nicer sounds be the default)
+  analogReading = HIGHEST_INPUT - analogRead(ANALOG_IN); 
 
   // get pin values, adding debouncing
   selectorVal1 = digitalRead(SELECTOR_PIN_1);
   selectorVal2 = digitalRead(SELECTOR_PIN_2);
 
   // generate selector out of pin values (treat as bits)
+  // so the value of selector follows this pattern (where HIGH is 1 and LOW is 0):
+  //  selectorVal1    selectorVal2    selector
+  //       0               0             0
+  //       1               0             1
+  //       0               1             2
+  //       1               1             3
   selector = 2 * selectorVal2 + selectorVal1;
 
   // based on selector value, run a different function (should go up to NUM_OPTIONS)
   switch (selector) 
   {
+    // notes are for diagnostics
     case 0:
       //playNote(C2, 100000);
       frequencySweep();
@@ -139,38 +143,47 @@ void loop() {
       break;
     case 3:
       //playNote(C5, 100000);
-      melodySelector();      
+      melodySelector();
+
+      // other possibilites
       //randomVariation();
       //dutyCycleControl();
       break;
     default:
+      // this is basically for errors
       playNote(E6, 100000);
       break;
   }  
 }
 
+/**
+ * Plays a different note based off analog input
+ */
 void frequencyControl()
 {
   const int LOWEST_NOTE = 21; // C3
   const int HIGHEST_NOTE = 62; // B8
-  const long PLAY_DURATION = 8000;
+  const long PLAY_DURATION = 8000; // uS length of each note played
 
-  // convert the analog input to a note index 
+  // convert the analog input to a note index (i.e. A5, B3, etc.)
   // (Note that the frequency of the note (how "high" or "low" it is) 
   // is the inverse of the period we use here)
   long noteIndex = map(analogReading, LOWEST_INPUT, HIGHEST_INPUT,
                           HIGHEST_NOTE, LOWEST_NOTE);
 
   // convert note index to a period (this uses a logaritmic function because
-  // the relationship between our note system and the period of a note is logaritmic
+  // the relationship between our note system and the period of a note is logaritmic)
   playNote(periodFromNoteIndex(noteIndex), PLAY_DURATION);
 }
 
+/**
+ * Plays alternating beeps (notes), with their duration controlled by analog input
+ */
 void alternatingBeeps()
 {
-  const int BEEP_ONE = C4; // A3 // C4
-  const int BEEP_TWO = C6; // G6 // C6
-  const long MIN_PLAY_DURATION = 500;
+  const int BEEP_ONE = C4; // A3 // or maybe C4
+  const int BEEP_TWO = C6; // G6 // or maybe C6
+  const long MIN_PLAY_DURATION = 500; // Note: less than a normal note period, but still seems to work
   const long MAX_PLAY_DURATION = 350000;
 
   // convert the analog input to a play duration for the notes
@@ -181,36 +194,48 @@ void alternatingBeeps()
   playNote(BEEP_TWO, playDuration);
 }
 
+/**
+ * Repeatedly sweeps (using the note period) from a starting note to an ending note
+ * The speed of the sweep is controlled by analog input
+ */
 void frequencySweep()
 {
   const int STARTING_NOTE = B8;
   const int ENDING_NOTE = C4;
-  const int INCREMENT = 75; // uS of period to increment by
-  const long MIN_PLAY_DURATION = 5;
+  const int INCREMENT = 75; // uS of period to increment by as we sweep
+  const long MIN_PLAY_DURATION = 5; 
   const long MAX_PLAY_DURATION = 20000;
 
   // convert the analog input to a play duration for the notes
   long playDuration = map(analogReading, LOWEST_INPUT, HIGHEST_INPUT,
                           MIN_PLAY_DURATION, MAX_PLAY_DURATION);
-  
+
+  // Play every period of note between STARTING_NOTE and ENDING_NOTE, 
+  // to create a swoop effect
+  // Note: The highest frequency notes go by faster because they have small periods
+  // and we're incrementing by a constant change in period
   for (int i = STARTING_NOTE; i < ENDING_NOTE; i += INCREMENT) {
     playNote(i, playDuration);
   }
 }
 
+/**
+ * Varys the duty cycle of a pulse (changes the effective PWM value) using analog input
+ * to create an interesting sound
+ * (Not actually the best sound)
+ */
 void dutyCycleControl()
 {
   const long PULSE_WIDTH = C4;
 
-  // convert the analog input to a duty cycle value, i.e. 
-  // a percent of the wave that is high
-  // equivalent (if map worked with floats) to:
+  // convert the analog input to a duty cycle value, i.e. a percent of the wave that is high
+  // Equivalent (if map worked with floats) to:
   // map(analogReading, LOWEST_INPUT, HIGHEST_INPUT, 0, 1)
   float dutyCycle = (analogReading - LOWEST_INPUT) / (float) HIGHEST_INPUT;
 
   long timeHigh = (long) (PULSE_WIDTH * dutyCycle);
   
-  // generate a square wave, and use the analog in to vary duty cycle
+  // generate a square wave, and use the analog input to vary the duty cycle
   digitalWrite(OUTPUT_PIN, HIGH);
   delayMicroseconds(timeHigh);
 
@@ -218,6 +243,10 @@ void dutyCycleControl()
   delayMicroseconds(PULSE_WIDTH - timeHigh);
 }
 
+/**
+ * Attempts to make somewhat random noise by playing a single note but adding
+ * random variations of period (frequency) onto it, controlled by analog input
+ */
 void randomVariation()
 {
   const long DEFAULT_PERIOD = C4;
@@ -239,13 +268,19 @@ void randomVariation()
   delayMicroseconds(period / 2);
 }
 
+/**
+ * Using a series of notes, plays reconizable melodies 
+ * The melody played is selected using the analog input (using categories of the input range)
+ */
+
 // Tempos for melodies
 #define BEAT_DURATION   40000  // uS - how long a single beat is
-#define INTER_NOTE_REST 10000 // uS - how long to rest between each note
-                                // (this is done because it's easier to hear notes)
-
+#define INTER_NOTE_REST 10000  // uS - how long to rest between each note
+                               // (this is done because it's easier to hear notes)
 
 // Melodies for melody selector
+// We need the size for array operations, and find it by dividing the 
+// size in bytes of each array (using sizeof) by the size in bytes of each element (they're "longs")
 // Imperial March - http://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0017607
 long notes_imperial_march[] = {G3, G3, G3, E3, B3, G3, E3, B3, G3, D4, D4, D4, E4, B3, G3, E3, B3,  R};
 int8_t beats_imperial_march[] =  {16, 16, 16,  8,  8, 16,  8,  8, 32, 16, 16, 16,  8,  8, 16,  8,  8, 32};
@@ -282,15 +317,15 @@ int8_t beats_pirates[] =  {16,  8,  8, 16, 16, 16,  8,  8, 16, 16, 16,  8,  8, 1
 int num_notes_pirates = sizeof(notes_pirates) / sizeof(long);
 
 void melodySelector() {  
-  const int NUM_ANALOG_OPTIONS = 5;
+  #define NUM_ANALOG_OPTIONS 5
   
-  // convert the analog reading to a function index
+  // convert the analog reading to a melody index
   int analogSelector = map(analogReading, LOWEST_INPUT, HIGHEST_INPUT, 0, NUM_ANALOG_OPTIONS);
 
-  // invert analog selector (because analogReading is invereted above)
+  // invert analog selector (because analogReading is inverted above)
   analogSelector = NUM_ANALOG_OPTIONS - analogSelector;
   
-  // based on selector value, run a different function (should go up to NUM_OPTIONS)
+  // based on selector value, run a different function (should go up to NUM_ANALOG_OPTIONS)
   switch (analogSelector) 
   {
     case 0:
@@ -311,7 +346,6 @@ void melodySelector() {
       break;
     default:
       playMelody(notes_carol, beats_carol, num_notes_carol);
-      //playNote(C3, BEAT_DURATION * 8);
       break;
   }  
 }
@@ -323,19 +357,22 @@ void melodySelector() {
 void playMelody(long* notes, int8_t* beats, int numNotes) {
   for (int i = 0; i < numNotes; i++)
   {
+    // convert the beats for this note to uS
     long playDuration = beats[i] * BEAT_DURATION;
 
-    // handle rests differently
-    if (notes[i] > 0)
-      playNote(notes[i], playDuration);
-    else
+    // handle rests differently (just delay, don't play a note)
+    if (notes[i] == R)
       delayMicroseconds(playDuration);
+    else
+      // play a note (which is represented by its period) for the uS duration
+      playNote(notes[i], playDuration);
 
     delayMicroseconds(INTER_NOTE_REST);
   }
 }
 
-/** * Plays a note of the given uS period (i.e. freq) for the given uS duration 
+/**
+ * Plays a note of the given uS period (i.e. freq) for the given uS duration 
  * NOTE: Durations on the microsecond level are not very accurate
  * (there's a lot of overhead) so there may be frequency, etc. limits to this method.
  */
@@ -344,7 +381,14 @@ void playNote(long period, long duration)
   long elapsedDuration = 0;
   while (elapsedDuration < duration)
   {
-    // generate approximate sine wave (actually a square wave)
+    // to make a certain note, generate approximate sine wave (actually a square wave)
+    // of the right frequency by going HIGH for half a period, and low for half a period:
+    //     1 period
+    //   <----------->
+    //  |------|
+    //  | HIGH |
+    //         | LOW  |
+    //         |------|
     digitalWrite(OUTPUT_PIN, HIGH);
     delayMicroseconds(period / 2);
 
@@ -356,13 +400,14 @@ void playNote(long period, long duration)
 }
 
 /**
- * Given an index representing note from the above #defines 
+ * Given an index representing a note from the above #defines 
  * (with C0 as 0 and B8 as 62), returns the period of a note
  * (Can also be used continiously, i.e. with note = 0.5)
  */
 long periodFromNoteIndex(double note)
 {
   // found by regressing the periods with note frequencies above 
+  // i.e. note index on x-axis, period on y-axis (looks like--and is--exponential decay)
   return 66523.448 * pow(e, -0.099 * note);
 }
 

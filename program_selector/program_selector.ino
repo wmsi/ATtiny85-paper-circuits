@@ -10,12 +10,12 @@
  * White Mountain Science, Inc.
  */
 
-const int NUM_OPTIONS = 5; // number of programs options (# of sections to divide input range into)
-const int SELECTOR_PIN = A2; // analog input
-const int LOWEST_INPUT = 0; // minimum analog input 
-const int HIGHEST_INPUT = 1023; // max analog input (represents min/max of whatever resistive device)
+#define NUM_OPTIONS 5 // number of programs options (# of sections to divide input range into)
+#define SELECTOR_PIN A2 // analog input
+#define LOWEST_INPUT 0 // minimum analog input 
+#define HIGHEST_INPUT 1023 // max analog input (represents min/max of whatever resistive device)
 
-const int NUM_PINS = 4;
+#define NUM_PINS 4
 
 int reading = 0, selector = 0;
 
@@ -29,7 +29,7 @@ void setup() {
 void loop() {
   reading = analogRead(SELECTOR_PIN);
 
-  // convert the analog reading to a function index
+  // convert the analog reading to a function index corresponding to one of our functions
   selector = map(reading, LOWEST_INPUT, HIGHEST_INPUT, 0, NUM_OPTIONS);
 
   // based on selector value, run a different function (should go up to NUM_OPTIONS)
@@ -51,51 +51,57 @@ void loop() {
       // RGB LED????
       break;
     default:
+      // indicates some input error
       blinky();
       break;
   }
 }
 
-// Blinks all outputs in a series from pin 0 to 4
+/**
+ * Blinks all outputs in a series from pin 0 to 4
+ */
 void blink_series() {
   // CONSTANTS
-  const long BLINK_TIME = 400; // ms; duration light is on for
-  const long RESET_TIME = 0; // ms; duration to wait before looping again
-  
+  #define BLINK_TIME 400 // ms; duration light is on for
+  #define RESET_TIME 0 // ms; duration to wait before looping again
+
+  // go through all pins, blinking each on and off briefly
   for (int i = 0; i < NUM_PINS; i++) {    
     digitalWrite(i, HIGH);
     delay(BLINK_TIME);
     digitalWrite(i, LOW);
   }   
 
-  // shut off all pins to reset
-//  for (int i = 0; i < NUM_PINS; i++) {    
-//    digitalWrite(i, LOW);
-//  }
-
   delay(RESET_TIME);
 }
 
-// Randomly varies output on all pins
+/**
+ * Randomly varies output on all pins
+ */
 void random_noise() {
   // Constants
-  const long RESET_TIME = 200; // ms; duration to wait before getting new random values
+  #define RESET_TIME 200 // ms; duration to wait before getting new random values
 
+  // write a random voltage to each pin
+  // Note: becasue only 3 out of 5 pins support analog output (PWM), 
+  // the digital pins will just be either on or off based on this value
   for (int i = 0; i < NUM_PINS; i++) {
-    // write a random voltage
     analogWrite(i, random(0, 255));
   }  
   delay(RESET_TIME);
 }
 
-// Produces a star-like "twinkle" effect
+/** 
+ * Produces a star-like "twinkle" effect 
+ */
 void twinkle() {
   // Constants
-  const long FADE_DELAY = 10; // ms; controls fade speed
-  const long UPPER_BRIGHTNESS = 255;
-  const long LOWER_BRIGHTNESS = 100;  
+  const int FADE_DELAY = 10; // ms; controls fade speed 
+                          // defined as variable becasue another function uses FADE_DELAY)
+  #define UPPER_BRIGHTNESS 255
+  #define LOWER_BRIGHTNESS 100  
 
-  // increase output
+  // gradually increase brightness in the range for all pins
   for (int i = LOWER_BRIGHTNESS; i < UPPER_BRIGHTNESS; i++) {
     for (int pin = 0; pin < NUM_PINS; pin++) {
       analogWrite(pin, i);
@@ -103,7 +109,7 @@ void twinkle() {
     delay(FADE_DELAY);
   } 
   
-  // decrease output
+  // gradually decrease brightness in the range for all pins
   for (int i = UPPER_BRIGHTNESS; i > LOWER_BRIGHTNESS; i--) {
     for (int pin = 0; pin < NUM_PINS; pin++) {
       analogWrite(pin, i);
@@ -118,11 +124,16 @@ void twinkle() {
 //    delay(FADE_DELAY);
 }
 
+/**
+ * Fades the output on all pins from off to full power
+ * Note: digital pins will just blink
+ */
 void fade() {
   // Constants
   const int FADE_DELAY = 8; // ms; controls fade speed
+                            // defined as variable becasue another function uses FADE_DELAY)
   
-  // increase output
+  // gradually increase brightness for all pins
   for (int i = 0; i < 255; i++) {
     for (int pin = 0; pin < NUM_PINS; pin++) {
       analogWrite(pin, i);
@@ -130,7 +141,7 @@ void fade() {
     delay(FADE_DELAY);
   } 
   
-  // decrease output
+  // gradually decrease brightness for all pins
   for (int i = 255; i > 0; i--) {
     for (int pin = 0; pin < NUM_PINS; pin++) {
       analogWrite(pin, i);
@@ -139,7 +150,7 @@ void fade() {
   }
 }
 
-// Blinks first output (used as a diagnostic
+// Blinks first output (used as a diagnostic)
 void blinky() {
   digitalWrite(0, HIGH);
   delay(500); 

@@ -9,10 +9,10 @@
  * White Mountain Science, Inc.
  */
 
-const int INPUT_PIN = A2;
-const int NUM_PINS = 2;
-const int LOWEST_INPUT = 0; // input that should be min output
-const int HIGHEST_INPUT = 1023; // input that should be max output 
+#define INPUT_PIN A2
+#define NUM_PINS 2
+#define LOWEST_INPUT 0 // input that should be min output
+#define HIGHEST_INPUT 1023 // input that should be max output 
 int input = 0, output = 0;
 
 void setup() {
@@ -25,11 +25,14 @@ void setup() {
 void loop() {
   input = analogRead(INPUT_PIN);
 
+  // convert the analog input to a normal analog output value (0 - 255)
   output = map(input, LOWEST_INPUT, HIGHEST_INPUT, 0, 255); 
+
+  // write that adjusted value to all pins
   for (int pin = 0; pin < NUM_PINS; pin++) {
     analogWrite(pin, output);
   }
 
-  // slow it down a bit
+  // slow it down a bit for stability
   delay(2);
 }

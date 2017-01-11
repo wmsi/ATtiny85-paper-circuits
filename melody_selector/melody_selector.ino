@@ -12,10 +12,10 @@
  */
 
 // Define notes
-// NOTE: Make sure you use these as LONGs on the ATtiny85! (w/ 16 bit ints)
+// NOTE: Make sure you use these as LONGs on the ATtiny85! (it has only 16 bit ints)
 // (A regular expression to manipulate these :) 
 //  (\w\d)\s*((\d|\.)*)\s*((\d|\.)*) -> $1 $2 $4 )
-//      NOTE  PERIOD // FREQ
+//    NOTE  PERIOD (uS) // FREQ (Hz)
 #define C0  61162.08  // 16.35
 #define D0  54495.91  // 18.35
 #define E0  48543.69  // 20.60
@@ -94,16 +94,16 @@
   #define SELECTOR_PIN_2 2                            // twos bit 
 #endif
 
-
 #define LOWEST_INPUT 0 // minimum analog input 
 #define HIGHEST_INPUT 1023 // max analog input (represents min/max of whatever resistive device)
 
 // Tempos
 #define BEAT_DURATION   40000  // uS - how long a single beat is
-#define INTER_NOTE_REST 10000 // uS - how long to rest between each note
-                                // (this is done because it's easier to hear notes)
-
+#define INTER_NOTE_REST 10000  // uS - how long to rest between each note
+                               // (this is done because it's easier to hear notes)
 // Melodies
+// We need the size for array operations, and find it by dividing the 
+// size in bytes of each array (using sizeof) by the size in bytes of each element (they're "longs")
 // Imperial March - http://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0017607
 long notes_imperial_march[] = {G3, G3, G3, E3, B3, G3, E3, B3, G3, D4, D4, D4, E4, B3, G3, E3, B3,  R};
 int8_t beats_imperial_march[] =  {16, 16, 16,  8,  8, 16,  8,  8, 32, 16, 16, 16,  8,  8, 16,  8,  8, 32};
@@ -194,9 +194,31 @@ void loop() {
       //playMelody(notes_pirates, beats_pirates, num_notes_pirates);
       break;
     default:
+      // used to signify an error
       playNote(C3, BEAT_DURATION * 8);
       break;
   }  
+}
+
+/**
+ * Plays a series of notes using playNote() given an array 
+ * of note periods and an array of note beat durations.
+ */
+void playMelody(long* notes, int8_t* beats, int numNotes) {
+  for (int i = 0; i < numNotes; i++)
+  {
+    // convert the beats for this note to uS
+    long playDuration = beats[i] * BEAT_DURATION;
+
+    // handle rests differently (just delay, don't play a note)
+    if (notes[i] == R)
+      delayMicroseconds(playDuration);
+    else
+      // play a note (which is represented by its period) for the uS duration
+      playNote(notes[i], playDuration);
+
+    delayMicroseconds(INTER_NOTE_REST);
+  }
 }
 
 /**
@@ -209,7 +231,14 @@ void playNote(long period, long duration)
   long elapsedDuration = 0;
   while (elapsedDuration < duration)
   {
-    // generate approximate sine wave (actually a square wave)
+    // to make a certain note, generate approximate sine wave (actually a square wave)
+    // of the right frequency by going HIGH for half a period, and low for half a period:
+    //     1 period
+    //   <----------->
+    //  |------|
+    //  | HIGH |
+    //         | LOW  |
+    //         |------|
     digitalWrite(OUTPUT_PIN, HIGH);
     delayMicroseconds(period / 2);
 
@@ -219,11 +248,3 @@ void playNote(long period, long duration)
     elapsedDuration += period;
   }
 }
-
-/*
-void noteSweep() {
-  for (long i = B8; i < C1; i += 100) {
-    playNote(i, BEAT_DURATION / 2);
-  }
-}
-*/
