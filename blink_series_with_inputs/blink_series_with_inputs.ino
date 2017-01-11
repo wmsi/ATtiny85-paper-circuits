@@ -15,7 +15,7 @@
 const int DIGITAL_IN_PIN = 3;
 const int ANALOG_IN_PIN = A2;
 const int NUM_PINS = 3;
-const int MIN_BLINK_TIME = 10; // ms; min duration light is on for
+const int MIN_BLINK_TIME = 30; // ms; min duration light is on for
 const int MAX_BLINK_TIME = 450; // ms; max duration light is on for
 const int LOWEST_INPUT = 0; // input that should be min blink speed
 const int HIGHEST_INPUT = 1023; // input that should be max blink speed 
@@ -43,7 +43,7 @@ void loop() {
   input = analogRead(ANALOG_IN_PIN);
 
   // invert input 
-  //input = HIGHEST_INPUT - input;
+  input = HIGHEST_INPUT - input;
   
   blinkTime = map(input, LOWEST_INPUT, HIGHEST_INPUT, MIN_BLINK_TIME, MAX_BLINK_TIME);
 
