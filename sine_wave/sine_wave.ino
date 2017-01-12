@@ -2,8 +2,8 @@
  * sine_wave.ino
  * 
  * ATtiny85 Project
- * Outputs a sine wave voltage pattern on analog output 
- * (ex. to control an electromagnetic motor)
+ * Outputs a sine wave voltage pattern on analog output (ex. to control an electromagnetic motor), 
+ * with the frequency (i.e. period) of the wave determined by an analog input
  * 
  * 1.11.2016
  * Mckenna Cisler
