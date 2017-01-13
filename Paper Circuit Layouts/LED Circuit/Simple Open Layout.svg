@@ -17,7 +17,7 @@
    viewBox="0 0 791.99972 612.00032"
    id="svg2"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="Simple Power Layout.svg">
+   sodipodi:docname="Simple Open Layout.svg">
   <metadata
      id="metadata1070" />
   <defs
@@ -37,9 +37,9 @@
      showgrid="true"
      inkscape:document-units="cm"
      showguides="true"
-     inkscape:zoom="1"
-     inkscape:cx="827.99673"
-     inkscape:cy="405.00426"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="627.06914"
+     inkscape:cy="427.25496"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -73,18 +73,18 @@
      partID="79610"
      id="g332"
      transform="matrix(1,0,0,1.0478498,189.61846,-3.6847316)"
-     style="fill:none;stroke:#ff1818;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+     style="fill:none;stroke:#ff1818;stroke-width:1.38458452;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.53833807,5.53833807;stroke-dashoffset:0;stroke-opacity:1">
     <g
        transform="translate(454.322,444.789)"
        id="g334"
-       style="fill:none;stroke:#ff1818;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+       style="fill:none;stroke:#ff1818;stroke-width:1.38458452;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.53833807,5.53833807;stroke-dashoffset:0;stroke-opacity:1">
       <g
          transform="scale(-1,-1)"
          id="g336"
-         style="fill:none;stroke:#ff1818;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+         style="fill:none;stroke:#ff1818;stroke-width:1.38458452;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.53833807,5.53833807;stroke-dashoffset:0;stroke-opacity:1">
         <g
            id="g338"
-           style="fill:none;stroke:#ff1818;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+           style="fill:none;stroke:#ff1818;stroke-width:1.38458452;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.53833807,5.53833807;stroke-dashoffset:0;stroke-opacity:1">
           <defs
              id="defs3782" />
           <metadata
@@ -95,22 +95,22 @@
                 <dc:format>image/svg+xml</dc:format>
                 <dc:type
                    rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                <dc:title></dc:title>
+                <dc:title />
               </cc:Work>
             </rdf:RDF>
           </metadata>
           <g
              transform="translate(-223.449,-4376.41)"
              id="g342"
-             style="fill:none;stroke:#ff1818;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+             style="fill:none;stroke:#ff1818;stroke-width:1.38458452;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.53833807,5.53833807;stroke-dashoffset:0;stroke-opacity:1">
             <g
                id="g344"
-               style="fill:none;stroke:#ff1818;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+               style="fill:none;stroke:#ff1818;stroke-width:1.38458452;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.53833807,5.53833807;stroke-dashoffset:0;stroke-opacity:1">
               <g
                  id="layer1"
-                 style="fill:none;stroke:#ff1818;stroke-width:1.38458455;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.07667621, 11.07667621;stroke-dashoffset:0;stroke-opacity:1">
+                 style="fill:none;stroke:#ff1818;stroke-width:1.38458452;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.53833807,5.53833807;stroke-dashoffset:0;stroke-opacity:1">
                 <path
-                   style="fill:none;fill-opacity:1;stroke:#ff1818;stroke-width:1.77165353;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:14.17322839, 14.17322839;stroke-dashoffset:0;stroke-opacity:1"
+                   style="fill:none;fill-opacity:1;stroke:#ff1818;stroke-width:1.77165354;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:7.08661415,7.08661415;stroke-dashoffset:0;stroke-opacity:1"
                    d="m 499.72852,295.65039 17.71484,0 0,-149.92187 -17.71484,0 0,0.0957 c 0,93.34293 0,149.82617 0,149.82617 z"
                    transform="matrix(-0.80000038,0,0,-0.76346856,861.97289,4807.1982)"
                    id="rect4596"
@@ -309,17 +309,17 @@
      partID="79660"
      id="g435"
      transform="translate(268.58162,68.228153)"
-     style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+     style="fill:none;stroke:#000000;stroke-width:1.4173235;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.66929401,5.66929401;stroke-dashoffset:0;stroke-opacity:1">
     <g
        transform="translate(218.10988,149.66177)"
        id="g437"
-       style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+       style="fill:none;stroke:#000000;stroke-width:1.4173235;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.66929401,5.66929401;stroke-dashoffset:0;stroke-opacity:1">
       <g
          id="g439"
-         style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+         style="fill:none;stroke:#000000;stroke-width:1.4173235;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.66929401,5.66929401;stroke-dashoffset:0;stroke-opacity:1">
         <g
            id="g441"
-           style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+           style="fill:none;stroke:#000000;stroke-width:1.4173235;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.66929401,5.66929401;stroke-dashoffset:0;stroke-opacity:1">
           <defs
              id="defs443" />
           <metadata
@@ -337,15 +337,15 @@
           <g
              transform="translate(-223.449,-2542.48)"
              id="g447"
-             style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+             style="fill:none;stroke:#000000;stroke-width:1.4173235;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.66929401,5.66929401;stroke-dashoffset:0;stroke-opacity:1">
             <g
                id="g449"
-               style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+               style="fill:none;stroke:#000000;stroke-width:1.4173235;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.66929401,5.66929401;stroke-dashoffset:0;stroke-opacity:1">
               <g
                  id="g451"
-                 style="fill:none;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1">
+                 style="fill:none;stroke:#000000;stroke-width:1.4173235;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.66929401,5.66929401;stroke-dashoffset:0;stroke-opacity:1">
                 <path
-                   style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.77165353;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:14.17322838, 14.17322838;stroke-dashoffset:0;stroke-opacity:1"
+                   style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.77165353;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:7.08661414,7.08661414;stroke-dashoffset:0;stroke-opacity:1"
                    d="m 465.01953,145.82815 0,150.65623 17.7168,-0.75 0,-149.9336 z"
                    transform="matrix(0.80000038,0,0,0.80000038,-259.52298,2335.2932)"
                    id="rect453"
@@ -357,7 +357,7 @@
                    x="224.28252"
                    height="0"
                    width="0"
-                   style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.41732347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:11.33858809, 11.33858809;stroke-dashoffset:0;stroke-opacity:1" />
+                   style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.4173235;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.66929401,5.66929401;stroke-dashoffset:0;stroke-opacity:1" />
               </g>
             </g>
           </g>
@@ -415,14 +415,18 @@
   <g
      partID="79680"
      id="g479"
-     transform="translate(65.77378,15.280916)">
+     transform="translate(65.77378,15.280916)"
+     style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
     <g
        transform="translate(235.459,203.355)"
-       id="g481">
+       id="g481"
+       style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
       <g
-         id="g483">
+         id="g483"
+         style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
         <g
-           id="g485">
+           id="g485"
+           style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
           <defs
              id="defs487" />
           <metadata
@@ -439,18 +443,21 @@
           </metadata>
           <g
              transform="translate(-223.449,-2542.48)"
-             id="g491">
+             id="g491"
+             style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
             <g
-               id="g493">
+               id="g493"
+               style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
               <g
-                 id="g495">
+                 id="g495"
+                 style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
                 <rect
                    y="2551.26"
                    id="rect499"
                    x="224.131"
                    height="1.00131"
                    width="0.15152299"
-                   style="fill:#b87333;fill-opacity:1" />
+                   style="fill:#b87333;fill-opacity:1;stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0" />
               </g>
             </g>
           </g>
@@ -461,15 +468,19 @@
   <g
      partID="79690"
      id="g501"
-     transform="matrix(1.5472824,0,0,1,-63.134815,15.280916)">
+     transform="matrix(1.5472824,0,0,1,-63.134815,15.280916)"
+     style="stroke-width:1.13942094;stroke-miterlimit:4;stroke-dasharray:6.83652563,6.83652563;stroke-dashoffset:0">
     <g
        transform="translate(292.236,203.411)"
-       id="g503">
+       id="g503"
+       style="stroke-width:1.13942094;stroke-miterlimit:4;stroke-dasharray:6.83652563,6.83652563;stroke-dashoffset:0">
       <g
          transform="matrix(0,1,-1,0,0,0)"
-         id="g505">
+         id="g505"
+         style="stroke-width:1.13942094;stroke-miterlimit:4;stroke-dasharray:6.83652563,6.83652563;stroke-dashoffset:0">
         <g
-           id="g507">
+           id="g507"
+           style="stroke-width:1.13942094;stroke-miterlimit:4;stroke-dasharray:6.83652563,6.83652563;stroke-dashoffset:0">
           <defs
              id="defs509" />
           <metadata
@@ -486,18 +497,21 @@
           </metadata>
           <g
              transform="translate(-223.449,-833.602)"
-             id="g513">
+             id="g513"
+             style="stroke-width:1.13942094;stroke-miterlimit:4;stroke-dasharray:6.83652563,6.83652563;stroke-dashoffset:0">
             <g
-               id="g515">
+               id="g515"
+               style="stroke-width:1.13942094;stroke-miterlimit:4;stroke-dasharray:6.83652563,6.83652563;stroke-dashoffset:0">
               <g
-                 id="g517">
+                 id="g517"
+                 style="stroke-width:1.13942094;stroke-miterlimit:4;stroke-dasharray:6.83652563,6.83652563;stroke-dashoffset:0">
                 <rect
                    y="836.48102"
                    id="rect521"
                    x="224.131"
                    height="0.3283"
                    width="0.15152299"
-                   style="fill:#b87333;fill-opacity:1" />
+                   style="fill:#b87333;fill-opacity:1;stroke-width:1.13942094;stroke-miterlimit:4;stroke-dasharray:6.83652563,6.83652563;stroke-dashoffset:0" />
               </g>
             </g>
           </g>
@@ -508,12 +522,15 @@
   <g
      partID="79700"
      id="g523"
-     transform="translate(97.818088,15.280916)">
+     transform="translate(97.818088,15.280916)"
+     style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
     <g
        transform="translate(277.918,203.663)"
-       id="g525">
+       id="g525"
+       style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
       <g
-         id="g527">
+         id="g527"
+         style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
         <defs
            id="defs529" />
         <metadata
@@ -530,18 +547,21 @@
         </metadata>
         <g
            transform="translate(-223.449,-416.801)"
-           id="g533">
+           id="g533"
+           style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
           <g
-             id="g535">
+             id="g535"
+             style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
             <g
-               id="g537">
+               id="g537"
+               style="stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">
               <rect
                  y="418.241"
                  id="rect541"
                  x="224.131"
                  height="0.16415"
                  width="0.15152299"
-                 style="fill:#b87333;fill-opacity:1" />
+                 style="fill:#b87333;fill-opacity:1;stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0" />
             </g>
           </g>
         </g>
@@ -550,7 +570,7 @@
   </g>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:22.00000954px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-weight:normal;font-size:22.00000954px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.4173235;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0"
      x="296.88162"
      y="142.71313"
      id="text5200"
@@ -559,10 +579,10 @@
        id="tspan5202"
        x="296.88162"
        y="142.71313"
-       style="font-size:22.00000954px">BLACK</tspan></text>
+       style="font-size:22.00000954px;stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">BLACK</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:22.00000954px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff1818;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-weight:normal;font-size:22.00000954px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff1818;fill-opacity:1;stroke:none;stroke-width:1.4173235;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0"
      x="424.17563"
      y="142.01443"
      id="text5200-6"
@@ -571,7 +591,7 @@
        id="tspan5202-7"
        x="424.17563"
        y="142.01443"
-       style="font-size:22.00000954px;fill:#ff1818;fill-opacity:1">RED</tspan></text>
+       style="font-size:22.00000954px;fill:#ff1818;fill-opacity:1;stroke-width:1.4173235;stroke-miterlimit:4;stroke-dasharray:8.50394101,8.50394101;stroke-dashoffset:0">RED</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.00000381px;line-height:100%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
