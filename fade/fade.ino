@@ -2,7 +2,7 @@
  * fade.ino
  * 
  * ATtiny85 Project
- * Fades output using an analog output sweep
+ * Fades output on all pins using an analog output sweep
  * 
  * 12.28.2016
  * Mckenna Cisler

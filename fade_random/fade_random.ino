@@ -2,7 +2,7 @@
  * fade_random.ino
  * 
  * ATtiny85 Project
- * Fades output on all pins using PWM, but with random offsets
+ * Fades output on all pins using an analog output sweep, but with random offsets for each pin
  * 
  * 12.28.2016
  * Mckenna Cisler
