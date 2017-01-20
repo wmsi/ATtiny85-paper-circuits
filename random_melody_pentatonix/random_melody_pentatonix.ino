@@ -1,14 +1,15 @@
 /*
- * play_melody.ino
+ * random_melody_pentatonix.ino
  * 
  * ATtiny85 Project
- * Plays a simple melody by creating audio waveforms of 
- * certain frequencies (notes) out of square waves
+ * Generates a random melody out of the Pentatonix note scale.
  * 
- * 1.2.2016
+ * 1.19.2016
  * Mckenna Cisler
  * White Mountain Science, Inc.
  */
+
+#define e 2.718281828 // the fundamental constant
 
 #define OUTPUT_PIN 0
 
@@ -89,71 +90,35 @@ long BEAT_DURATION =   40000;  // uS - how long a single beat is
 long INTER_NOTE_REST = 10000; // uS - how long to rest between each note
                                 // (this is done because it's easier to hear notes)
 
-// Melodies
-// We need the size for array operations, and find it by dividing the 
-// size in bytes of each array (using sizeof) by the size in bytes of each element (they're "longs")
-// Imperial March - http://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0017607
-long notes_imperial_march[] = {G3, G3, G3, E3, B3, G3, E3, B3, G3, D4, D4, D4, E4, B3, G3, E3, B3,  R};
-int8_t beats_imperial_march[] =  {16, 16, 16,  8,  8, 16,  8,  8, 32, 16, 16, 16,  8,  8, 16,  8,  8, 32};
-int num_notes_imperial_march = sizeof(notes_imperial_march) / sizeof(long);
+// The Pentatonix scale is a series of note ratios that (by the magic of music theory)
+// tend to sound good together in any order.
+// These are a series of notes that follow those ratios.
+// For more see https://en.wikipedia.org/wiki/Pentatonic_scale
+long pentatonix_scale[] = {A4, C5, D5, E5, G5, A5};
+const int NUM_PENTATONIX = 6;
 
-// Mary had a Little Lamb - http://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0127902
-long notes_mary_lamb[] = {A3, G3, F3, G3, A3, A3, A3, G3, G3, G3, A3, C4, C4}; 
-int8_t beats_mary_lamb[] =  { 8,  8,  8,  8,  8,  8, 16,  8,  8, 16,  8,  8, 16};
-int num_notes_mary_lamb = sizeof(notes_mary_lamb) / sizeof(long);
-
-// Raiders March - http://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0130280
-long notes_raiders[] =   {E4, F4, G4, C5, D4, E4, F4,  R, G4, A4, B4, F5, A4, B4, C5, D5, E5};
-int8_t beats_raiders[] = { 4,  4,  4, 24,  4,  4, 16,  8,  4,  4,  4, 24,  4,  4,  8,  8,  8};
-int num_notes_raiders = sizeof(notes_raiders) / sizeof(long);
-
-// Twinkle Twinkle Little Star - http://makingmusicfun.net/pdf/sheet_music/twinkle-twinkle-little-star-piano-solo.pdf
-long notes_twinkle[] = {C5, C5, G5, G5, A5, A5, G5, F5, F5, E5, E5, D5, D5, C5, R};
-int8_t beats_twinkle[] =  {16, 16, 16, 16, 16, 16, 32, 16, 16, 16, 16, 16, 16, 32, 32};
-int num_notes_twinkle = sizeof(notes_twinkle) / sizeof(long);
-
-// Old Macdonald had a Farm - http://makingmusicfun.net/pdf/sheet_music/old-macdonald-piano-solo.pdf
-long notes_macdonald[] = {G4, G4, G4, D4, E4, E4, D4, B4, B4, A4, A4, G4, D4};
-int8_t beats_macdonald[] =  { 8,  8,  8,  8,  8,  8, 16,  8,  8,  8,  8, 16,  8};
-int num_notes_macdonald = sizeof(notes_macdonald) / sizeof(long);
-
-// Carol of the Bells (short) - http://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0060566
-long notes_carol[] = {G5, F5, G5, E5};
-int8_t beats_carol[] =  { 8,  4,  4,  8};
-int num_notes_carol = sizeof(notes_carol) / sizeof(long);
-
-// Pirates of the Carribean - http://easymusicnotes.com/index.php?option=com_content&view=article&id=1588:pirates-of-the-caribbean-theme&catid=148:piano-level-4&Itemid=155
-long notes_pirates[] =    { R, A2_, C3, D3, D3,  R, D3, E3, F3, F3,  R, F3, G3, E3, E3,  R, D3, C3, D3}; 
-int8_t beats_pirates[] =  {16,  8,  8, 16, 16, 16,  8,  8, 16, 16, 16,  8,  8, 16, 16, 16,  8,  8, 16};
-int num_notes_pirates = sizeof(notes_pirates) / sizeof(long);
+#define MELODY_LEN 18 // length of random melody to play
+#define BEATS_PER_NOTE 16
 
 void setup() {
   pinMode(OUTPUT_PIN, OUTPUT);
 }
 
 void loop() {
-  playMelody(notes_imperial_march, beats_imperial_march, num_notes_imperial_march);
-}
-
-/**
- * Plays a series of notes using playNote() given an array 
- * of note periods and an array of note beat durations.
- */
-void playMelody(long* notes, int8_t* beats, int numNotes) {
-  for (int i = 0; i < numNotes; i++)
+  for (int i = 0; i < MELODY_LEN; i++)
   {
-    // convert the beats for this note to uS
-    long playDuration = beats[i] * BEAT_DURATION;
+    // get a random note by generating a random index and using it
+    // to grab one at random from the list
+    long randomNote = pentatonix_scale[random(0, NUM_PENTATONIX)];
 
-    // handle rests differently (just delay, don't play a note)
-    if (notes[i] == R)
-      delayMicroseconds(playDuration);
-    else
-      // play a note (which is represented by its period) for the uS duration
-      playNote(notes[i], playDuration);
+    // play the note at a constant duration
+    playNote(randomNote, BEATS_PER_NOTE * BEAT_DURATION);
 
     delayMicroseconds(INTER_NOTE_REST);
   }
+
+  // reset after each melody
+  //delay(500);
 }
 
 /**

@@ -29,12 +29,16 @@ Fades output on all pins using an analog output sweep, but with random offsets f
 Fades output based on the value of an analog input.
 #### Melody Selector
 Using the functionality of Play Melody, plays different melodies based on an analog in reading (ex. a potentiometer) or digital in readings (as a binary input).
+#### Note Scale
+Using note indexes (vs. period values), plays the full note scale upwards in pitch and back down again.
 #### Play Melody
 Plays a simple melody by creating audio waveforms of certain frequencies (notes) out of square waves
 #### Power Indicator
 Uses a series of pins (with LEDs for example) to indicate the power level being applied to a certain input pin.
 #### Program Selector
 Runs different functions (representing other programs) based on an analog in reading (ex. a potentiometer controlling LED blink patterns)
+#### Random Melody (Pentatonix)
+Generates a random melody out of the Pentatonix note scale.
 #### Random Noise
 Randomly varies output on all pins
 #### Random Output

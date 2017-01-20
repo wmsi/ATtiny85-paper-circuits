@@ -21,7 +21,7 @@
 #define E0  48543.69  // 20.60
 #define F0  45808.52  // 21.83
 #define G0  40816.33  // 24.50
-#define A0  36363.64  // 27.50
+#define A0_  36363.64  // 27.50 // Make sure we don't interfere with analog pins
 #define B0  32393.91  // 30.87
 #define C1  30581.04  // 32.70
 #define D1  27240.53  // 36.71
